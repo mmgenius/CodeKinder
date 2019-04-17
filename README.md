@@ -7,12 +7,3 @@ Edit readme just for test
 
 #Workflow
 
-                                      Feature_Branch
-                           ----------°
-                          |           \
-                          |            \
-Master °------------------>-------------\°-------------->-------------/°---->
-                                                        |            /
-                                                        |           /
-                                                        |----------°
-                                                                   Feature_Branche2
