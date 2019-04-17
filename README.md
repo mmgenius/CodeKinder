@@ -11,21 +11,21 @@ https://github.com/mmgenius/CodeKinder/issues/1#issue-434287158
 ![workflow](https://user-images.githubusercontent.com/11133767/56291834-4ffad180-6126-11e9-8975-68e9c4c6af40.JPG)
 
 
-Available Scripts Angular For the FRONT Project
+# Available Scripts Angular For the FRONT Project
 In the project directory, you can run:
 
-ng serve
+## ng serve
 Runs the app in the development mode.
 Open http://localhost:42000 to view it in the browser.
 
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-ng Test
+## ng Test
 Launches the test runner in the interactive watch mode.
 See the section about running tests for more information.
 
-ng build
+## ng build
 Builds the app for production to the build folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
