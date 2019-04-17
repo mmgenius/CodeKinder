@@ -4,7 +4,16 @@ This is an academic and collaborative project.
 The principal idea is to create a Web platform and some specific langage to make request from API rest to check of get data. 
 
 
-#Workflow
+#Workflow : 
+To keep a lineaire workflow, we proced like below : 
+    ##### - Stayed up to date from local master
+    ##### - Commited you changes 
+    ##### - Checked out into new local branch and pushed it to server
+    ##### - Create a new merge request to merge branche into master
+    ##### Note : When the maintener accepts you merge request, you remote branche will be deleted
+    ##### - You have to return in the local master branch and make Pull to update local file 
+    ##### - You can see a little example below 
+    
 https://github.com/mmgenius/CodeKinder/issues/1#issue-434287158
 
 
