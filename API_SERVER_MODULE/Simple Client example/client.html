@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Kinder client</title>
+</head>
+<body>
+    <h1>TEST SERVER KINDER </h1>
+
+    <p>
+        <input id="server" type="text" value="ws://localhost:8887" size="40">
+        <button onclick="openSocket()">Open</button>
+        <button onclick="closeSocket()">Close</button>
+    </p>
+
+    <!--
+    <p>
+        <input id="message" type="text" size="40">
+        <button onclick="sendText()">Send Text</button>
+        <button onclick="sendBinary()">Send Binary</button>
+    </p>
+    -->
+    <p>
+        <select name="thelistYear" onChange="sendText(this)">
+            <option>Select Year</option>
+            <option>2018</option>
+            <option>2017</option>
+            <option>2016</option>
+        </select> 
+    </p>
+    <p>
+        <p><label for="data">DATA:</label></p>
+        <textarea id="data" name="data" rows="5" cols="33">
+            ...
+        </textarea>
+    </p>
+
+    <p>Use hexadecimal to send binary messages...</p>
+
+    <ul id="messages"></ul>
+
+    <script>
+        var ws;
+        function openSocket() {
+            log('opening');
+            var url = document.getElementById('server').value;
+            ws = new WebSocket(url);
+            ws.binaryType = 'arraybuffer'; // default is 'blob'
+            ws.onopen = function() {
+                log('open');
+                sessionStorage.echoServer = url;
+            };
+            ws.onclose = function() {
+                log('close');
+            };
+            ws.onmessage = function(e) {
+                //if (e.data instanceof JSon){
+					
+				//}                  
+                //log('received: ' + e.data);
+                document.getElementById("data").value = e.data;
+                
+            };
+            ws.onerror = function() {
+                log('error');
+            };
+        }
+        function closeSocket() {
+            log('closing');
+            ws.close();
+        }
+        function sendText(thelistYear) {
+            
+            var indexYear = thelistYear.selectedIndex;  
+            var message = thelistYear.options[indexYear].innerHTML;
+            log('sending: ' + message);           
+            ws.send(message);
+        }
+        
+        function log(message) {
+            var li = document.createElement('li');
+            li.innerHTML = message;
+            document.getElementById('messages').appendChild(li);
+        }
+        if (sessionStorage.echoServer) {
+            document.getElementById('server').value = sessionStorage.echoServer;
+        }
+    </script>
+</body>
+</html>

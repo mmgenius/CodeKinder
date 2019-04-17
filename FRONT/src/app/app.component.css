@@ -1,0 +1,64 @@
+.allDoc{
+  background-color: #CCC;
+  margin : -25px;
+  padding: 25px;
+  font-family: "Linux Biolinum G";
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo{
+  min-width: 75px;
+  width : 15%;
+  max-width: 200px;
+  align-self: flex-start;
+}
+
+.input{
+  background-color: #DDD;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 4px;
+  border-top: solid 1px #888;
+  border-right: solid 4px #AAA;
+  border-bottom: solid 4px #AAA;
+  border-left: solid 1px #888;
+}
+.output{
+  display: flex;
+}
+.graph{
+  flex: 1;
+}
+.data{
+  flex : 1;
+}
+
+
+button{
+  padding: 5px;
+  margin: 15px;
+  border-radius: 4px;
+  background-color: #CCC;
+  font-family: "Linux Biolinum G";
+  font-size: 1.2em;
+}
+
+select{
+  padding: 5px;
+  margin: 15px;
+  border-radius: 3px;
+  font-family: "Linux Biolinum G";
+  font-size: 1em;
+}
+
+input{
+  padding: 5px;
+  margin: 15px;
+  border-radius: 3px;
+  font-family: "Linux Biolinum G";
+}
