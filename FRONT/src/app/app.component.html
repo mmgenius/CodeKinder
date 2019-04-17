@@ -10,26 +10,24 @@
       <h2>
          Entrez votre requete
       </h2>
-    <input #box (keyup.enter)="onValidation(box.value, year.value)">
-    <button (click)="onValidation(box.value, year.value)">Valider</button>
+    <input id="box" (keyup.enter)="sendText(selYear, selCountry)">
+    <button (click)="sendText(selYear,selCountry)">Valider</button>
 
     <select >
-      <option #selYear *ngFor="let year of years" [value]="year">{{year}}</option>
+      <option name="selYear" *ngFor="let year of years" [value]="year">{{year}}</option>
     </select>
 
     <select >
-      <option #selCounry *ngFor="let country of countries" [value]="country">{{country}}</option>
+      <option name="selCountry" *ngFor="let country of countries" [value]="country">{{country}}</option>
     </select>
 
 
   </div>
 
   <div class='output'>
-    <div class="graph">
-      <p>blablabla ceci est un graphe !</p>
-    </div>
+    
 
-    <div class="data">
+    <div id="data">
       <p>{{values}}</p>
       <p>blablabla ceci est un ensemble de données !</p>
     </div>
