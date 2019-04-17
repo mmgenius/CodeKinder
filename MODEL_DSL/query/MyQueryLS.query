@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Query
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:model="http://www.example.org/model"
+    xsi:schemaLocation="http://www.example.org/model model.ecore"
+    ind="SP.POP.TOTL">
+  <country name="de"/>
+  <country name="fr"/>
+  <country name="be"/>
+  <period begin="1990" end="1997"/>
+  <BlockOfResult value="1300002" year="1990">
+    <country name="fr"/>
+  </BlockOfResult>
+  <BlockOfResult value="1300012" year="1991">
+    <country name="fr"/>
+  </BlockOfResult>
+  <BlockOfResult value="1300202" year="1992">
+    <country name="fr"/>
+  </BlockOfResult>
+</model:Query>

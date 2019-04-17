@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:model="http://www.example.org/model">
+  <model:Query ind="age"/>
+  <model:BlockOfResult value="dhdghd" year="1960">
+    <country name="fr"/>
+  </model:BlockOfResult>
+</xmi:XMI>
