@@ -5,14 +5,14 @@ The principal idea is to create a Web platform and some specific langage to make
 
 
 #Workflow : 
-To keep a lineaire workflow, we proced like below : 
-    ##### - Stayed up to date from local master
-    ##### - Commited you changes 
-    ##### - Checked out into new local branch and pushed it to server
-    ##### - Create a new merge request to merge branche into master
-    ##### Note : When the maintener accepts you merge request, you remote branche will be deleted
-    ##### - You have to return in the local master branch and make Pull to update local file 
-    ##### - You can see a little example below 
+To keep a lineaire workflow, we proced like below : <br/>
+    ##### - Stayed up to date from local master<br/>
+    ##### - Commited you changes <br/>
+    ##### - Checked out into new local branch and pushed it to server<br/>
+    ##### - Create a new merge request to merge branche into master<br/>
+    ##### Note : When the maintener accepts you merge request, you remote branche will be deleted<br/>
+    ##### - You have to return in the local master branch and make Pull to update local file <br/>
+    ##### - You can see a little example below <br/>
     
 https://github.com/mmgenius/CodeKinder/issues/1#issue-434287158
 
