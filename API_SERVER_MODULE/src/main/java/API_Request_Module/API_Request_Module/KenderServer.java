@@ -2,10 +2,12 @@
 package API_Request_Module.API_Request_Module;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -142,6 +144,37 @@ public class KenderServer extends WebSocketServer {
 				break;
 			}
 		}
+	}
+	
+	public static boolean WriteStringDslIntoFile(String data) {
+		
+		/**
+	     * Use Streams when you are dealing with raw data
+	     * @param data
+	     */
+		int noOfLines = 1;
+		File file = new File("C:\\Users\\AdminEtu\\Desktop\\Codekinderproject\\CodeKinderProject\\API_SERVER_MODULE\\requete.query");
+        FileWriter fr = null;
+        BufferedWriter br = null;
+        String dataWithNewLine=data+System.getProperty("line.separator");
+        try{
+            fr = new FileWriter(file);
+            br = new BufferedWriter(fr);
+            for(int i = noOfLines; i>0; i--){
+                br.write(dataWithNewLine);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally{
+            try {
+                br.close();
+                fr.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        return file.exists(); 
 	}
 
 	@Override
