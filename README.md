@@ -3,6 +3,11 @@
 This is an academic and collaborative project. 
 The principal idea is to create a Web platform and some specific langage to make request from API rest to check of get data. 
 
+#Notation
+This is some rules before pulling request / pushing new branch into master.
+    ##### Right branch name : PREFIXE_FEATURE 
+            ------ Prefixe : User_Name 
+            ------ Feature : Work theme
 
 #Workflow : 
 To keep a lineaire workflow, we proced like below : <br/>
