@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<model:Query xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:model="http://www.example.org/model">
-  <country name="fr"/>
-  <period begin="1960" end="1960"/>
-  <blockofresult value="69.87" year="1960">
-    <country name="fr"/>
-  </blockofresult>
-</model:Query>
