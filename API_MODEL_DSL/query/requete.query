@@ -1,16 +1,1 @@
-<?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:model="http://www.example.org/model">
- <model:Query
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:model="http://www.example.org/model"
-    xsi:schemaLocation="http://www.example.org/model model.ecore"
-    ind="SP.POP.TOTL">
-  <country name="de"/>
-  <country name="fr"/>
-  <country name="be"/>
-  <period begin="1990" end="1997"/>
-</model:Query>
-</xmi:XMI>
-
+<?xml version="1.0" encoding="ASCII"?><xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:model="http://www.example.org/model"><model:Query xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://www.example.org/model" xsi:schemaLocation="http://www.example.org/model model.ecore" ind="SP.POP.TOTL"><country name="de"/><country name="fr"/><country name="be"/><period begin="1990" end="1997"/></model:Query></xmi:XMI>
