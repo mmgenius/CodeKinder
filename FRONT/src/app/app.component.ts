@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, platformCore } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,7 @@ export class AppComponent {
   url: string;
   years: string[];
   countries: string[];
+  mapCoutries: any;
   options: string[];
   ws: WebSocket;
   data: string;
@@ -21,6 +22,7 @@ export class AppComponent {
     this.url = "ws://localhost:8887",
     this.years = ["1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999"];
     this.countries = ["Germany", "France", "Niger", "Senegal", "Wonderland"];
+    this.mapCoutries = [["Germany","de"], ["France", "fr"], ["Niger", "ne"], ["Senegal", "se"]];
     this.data = '' ;
     this.openSocket();
   }
@@ -57,11 +59,22 @@ export class AppComponent {
     this.log('closing');
     this.ws.close();
   }
+
   sendText(pYearBegin, pYearEnd, pCountry) {
-     const indexYear = thelistYear.selectedIndex;
-     const message = thelistYear.options[indexYear].innerHTML;
-    console.log('coucou : '+pYearBegin);
-    this.ws.send(pYearEnd);
+    let query = '<?xml version="1.0" encoding="UTF-8"?>'
+    +'<model:Query'
+    +  'xmi:version="2.0"'
+    + 'xmlns:xmi="http://www.omg.org/XMI"'
+    +  'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"'
+    + 'xmlns:model="http://www.example.org/model"'
+    +  ' xsi:schemaLocation="http://www.example.org/model model.ecore"'
+    +  ' ind="SP.POP.TOTL">';
+    pCountry.forEach(country => {
+        query += '<country name="' + this.mapCoutries.get(country)  + '"/>';
+    });
+    query += '<period begin="'+ pYearBegin + '" end="'+ pYearEnd +'"/>'
+    + '</model:Query>'
+    this.ws.send(query);
 }
   log(message) {
             var li = document.createElement('li');
@@ -72,6 +85,7 @@ export class AppComponent {
     //  document.getElementById('server').value = sessionStorage.echoServer;
   //}
 
-  buildQuery(){
+  buildQuery() {
+    
   }
 }
