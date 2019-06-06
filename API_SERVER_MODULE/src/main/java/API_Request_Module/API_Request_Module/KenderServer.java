@@ -106,6 +106,14 @@ public class KenderServer extends WebSocketServer {
 		//System.out.println(sb.toString());
 		broadcast(messageData);
 		System.out.println(conn + ": " + message);
+		if(WriteStringDslIntoFile(message)) {
+			try {
+				System.out.println(LoadTest.dslBootstrap());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 		 
 	}
@@ -114,14 +122,7 @@ public class KenderServer extends WebSocketServer {
 	public void onMessage(WebSocket conn, ByteBuffer message) {
 		broadcast(message.array());
 		System.out.println(conn + ": " + message);
-		if(WriteStringDslIntoFile(message.toString())) {
-			try {
-				System.out.println(LoadTest.dslBootstrap());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		
 	}
 
 	public static void main(String[] args) throws InterruptedException, IOException {
@@ -155,7 +156,7 @@ public class KenderServer extends WebSocketServer {
 	     * @param data
 	     */
 		
-		String fileName = "..\\..\\..\\..\\..\\..\\API_MODEL_DSL\\query\\requete.query";
+		String fileName = "C:\\Users\\AdminEtu\\Desktop\\Codekinderproject\\CodeKinderProject\\API_MODEL_DSL\\query\\requete.query";
 		int noOfLines = 1;
 		File file = new File(fileName);
         FileWriter fr = null;
