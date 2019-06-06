@@ -1,3 +1,4 @@
+package APIExchange; 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Collections;
@@ -71,11 +72,8 @@ public class LoadTest {
 
 	public static void main(String[] args) throws IOException {
 		// Loading the existing model
-		EMFModelLoad loader = new EMFModelLoad();
-		Query test = loader.loadQuery();
-		System.out.println(dslBootstrap(test));
-		System.out.println("=======");
-		System.out.println(test.getBlockofresult().get(0));
+	
+		
 	}
 	
 	
@@ -83,7 +81,9 @@ public class LoadTest {
 	 * @param test
 	 * @throws IOException
 	 */
-	public static String dslBootstrap(Query test) throws IOException {
+	public static String dslBootstrap() throws IOException {
+		EMFModelLoad loader = new EMFModelLoad();
+		Query test = loader.loadQuery();
 		String retour = "";
 		System.out.println(serializeQuery(test));
 		System.out.println(APICommunication.sendGET(serializeQuery(test)));

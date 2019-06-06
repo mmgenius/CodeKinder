@@ -1,6 +1,6 @@
 
 package API_Request_Module.API_Request_Module;
-
+import APIExchange.LoadTest;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,30 +11,22 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.commons.io.IOUtils;
 import org.java_websocket.WebSocket;
-import org.java_websocket.WebSocketImpl;
-import org.java_websocket.framing.Framedata;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
-import org.json.JSONObject;
-import org.json.XML;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
+
 
 public class KenderServer extends WebSocketServer {
-
+	
+	public static String filename ; 
 	public KenderServer(int port) throws UnknownHostException {
 		super(new InetSocketAddress(port));
 	}
@@ -122,9 +114,18 @@ public class KenderServer extends WebSocketServer {
 	public void onMessage(WebSocket conn, ByteBuffer message) {
 		broadcast(message.array());
 		System.out.println(conn + ": " + message);
+		if(WriteStringDslIntoFile(message.toString())) {
+			try {
+				System.out.println(LoadTest.dslBootstrap());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 	public static void main(String[] args) throws InterruptedException, IOException {
+				
 		int port =  8887; // 843 flash policy port
 		try {
 			port = Integer.parseInt(args[0]);
@@ -146,14 +147,17 @@ public class KenderServer extends WebSocketServer {
 		}
 	}
 	
+	
 	public static boolean WriteStringDslIntoFile(String data) {
 		
 		/**
 	     * Use Streams when you are dealing with raw data
 	     * @param data
 	     */
+		
+		String fileName = "..\\..\\..\\..\\..\\..\\API_MODEL_DSL\\query\\requete.query";
 		int noOfLines = 1;
-		File file = new File("C:\\Users\\AdminEtu\\Desktop\\Codekinderproject\\CodeKinderProject\\API_SERVER_MODULE\\requete.query");
+		File file = new File(fileName);
         FileWriter fr = null;
         BufferedWriter br = null;
         String dataWithNewLine=data+System.getProperty("line.separator");

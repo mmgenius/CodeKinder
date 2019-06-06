@@ -12,7 +12,5 @@
   <country name="be"/>
   <period begin="1990" end="1997"/>
 </model:Query>
-  <model:BlockOfResult value="dhdghd" year="1960">
-    <country name="fr"/>
-  </model:BlockOfResult>
 </xmi:XMI>
+

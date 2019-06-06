@@ -73,7 +73,8 @@
             
             var indexYear = thelistYear.selectedIndex;  
             var message = thelistYear.options[indexYear].innerHTML;
-            log('sending: ' + message);           
+            log('sending: ' + message);
+			
             ws.send(message);
         }
         

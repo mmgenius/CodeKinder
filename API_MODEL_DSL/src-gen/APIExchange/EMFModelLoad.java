@@ -1,5 +1,5 @@
 //The following code can be used to load an existing model.
-
+package APIExchange; 
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
@@ -32,7 +32,7 @@ public class EMFModelLoad {
 
         // Get the resource
         Resource resource = resSet.getResource(URI
-                .createURI("result/My2.result"), true);
+                .createURI("../API_MODEL_DSL/result/My2.result"), true);
         // Get the first model element and cast it to the right type, in my
         // example everything is hierarchical included in this first node
         BlockOfResult result = (BlockOfResult) resource.getContents().get(0);
@@ -53,7 +53,7 @@ public class EMFModelLoad {
         ResourceSet resSet = new ResourceSetImpl();
 
         // Get the resource
-        Resource resource = resSet.getResource(URI.createURI("query/requete.query"), true);
+        Resource resource = resSet.getResource(URI.createURI("../API_MODEL_DSL/query/requete.query"), true);
         // Get the first model element and cast it to the right type, in my
         // example everything is hierarchical included in this first node
    ;
