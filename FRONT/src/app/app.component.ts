@@ -21,12 +21,13 @@ export class AppComponent {
     this.url = "ws://localhost:8887",
     this.years = ["1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999"];
     this.countries = ["Germany", "France", "Niger", "Senegal", "Wonderland"];
-
     this.data = '' ;
     this.openSocket();
   }
   onValidation(value: string, year: string) {
     this.data += value + year;
+    //this.data = selCountry;
+
   }
   openSocket() {
     console.log('opening');
@@ -41,8 +42,8 @@ export class AppComponent {
       console.log('close');
     };
     this.ws.onmessage = function(e) {
-        document.getElementById("data").innerHTML = e.data;
-        
+      document.getElementById("data").innerHTML = e.data;
+
     };
     this.ws.onerror = function() {
       console.log('error');
@@ -56,22 +57,21 @@ export class AppComponent {
     this.log('closing');
     this.ws.close();
   }
-  sendText(pYear, pCountry) {
-    // const indexYear = thelistYear.selectedIndex;  
-    // const message = thelistYear.options[indexYear].innerHTML;
-    // console.log('sending: ' + message);
-    this.ws.send(pYear);
+  sendText(pYearBegin, pYearEnd, pCountry) {
+     const indexYear = thelistYear.selectedIndex;
+     const message = thelistYear.options[indexYear].innerHTML;
+    console.log('coucou : '+pYearBegin);
+    this.ws.send(pYearEnd);
 }
   log(message) {
             var li = document.createElement('li');
             li.innerHTML = message;
             document.getElementById('messages').appendChild(li);
         }
-  // if(sessionStorage.echoServer) { 
-  //    document.getElementById('server').value = sessionStorage.echoServer;
-  //  }
+  // if(sessionStorage.echoServer) {
+    //  document.getElementById('server').value = sessionStorage.echoServer;
+  //}
 
   buildQuery(){
   }
-
 }
