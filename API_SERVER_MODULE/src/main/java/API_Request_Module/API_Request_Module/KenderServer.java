@@ -51,68 +51,20 @@ public class KenderServer extends WebSocketServer {
 
 	@Override
 	public void onMessage(WebSocket conn, String message) {
-		
-		String fileName = getClass().getResource("jsonModel.json").getPath();
-		 
-		
-		FileReader reader = null;
-		try {
-			reader = new FileReader(fileName);
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	    JSONParser jsonParser = new JSONParser();
-	  //Read JSON file
-        Object obj = null;
-		try {
-			obj = jsonParser.parse(reader);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    
-		String messageData = obj.toString();
-		
 	
-		/*Reader fileReader = null;
-		try {
-			fileReader = new FileReader(fileName);
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-        BufferedReader bufReader = new BufferedReader(fileReader);     
-        StringBuilder sb = new StringBuilder();
-       
-        String JsonString ="";
-		try {
-			 String line = bufReader.readLine();
-			 while( line != null){
-		        sb.append(line).append("\n");		           
-		        line = bufReader.readLine();		        
-		     }
-	       
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
-		
-		//JsonString = sb.toString();
-		//System.out.println(sb.toString());
-		broadcast(messageData);
+		String result = ""; 
 		System.out.println(conn + ": " + message);
 		if(WriteStringDslIntoFile(message)) {
 			try {
-				System.out.println(LoadTest.dslBootstrap());
+				result = LoadTest.dslBootstrap();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+		
+		if(result != "") {
+			broadcast(result);
 		}
 		
 		 
@@ -155,8 +107,10 @@ public class KenderServer extends WebSocketServer {
 	     * Use Streams when you are dealing with raw data
 	     * @param data
 	     */
+		String projectDir = System.getProperty("user.dir");		
+		String fileName = projectDir + "\\..\\API_MODEL_DSL\\query\\requete.query";
 		
-		String fileName = "C:\\Users\\AdminEtu\\Desktop\\Codekinderproject\\CodeKinderProject\\API_MODEL_DSL\\query\\requete.query";
+		
 		int noOfLines = 1;
 		File file = new File(fileName);
         FileWriter fr = null;
