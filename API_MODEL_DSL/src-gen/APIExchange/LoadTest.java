@@ -20,6 +20,13 @@ import org.json.*;
 
 public class LoadTest {
 
+	
+	/**
+	 * This function transfom a giving query to URL that can be use by the API : in this example the worldbank.org API
+	 * @author Sebastien - Louise
+	 * @param Query 
+	 * @return URL of type String
+	 */
 	public static String serializeQuery(Query query) {
 		String sQuery="https://api.worldbank.org/v2/country/";
 		//Creation de la requete pays.
@@ -33,10 +40,15 @@ public class LoadTest {
 		sQuery+="/indicator/"+query.getInd()+"?date="+query.getPeriod().getBegin()+":"+query.getPeriod().getEnd()+"&format=json";
 		return sQuery;	
 	}
+	
+	
 	/**
-	 * @param args
+	 * This function transfom a giving query to URL that can be use by the API : in this example the worldbank.org API
+	 * @author Sebastien - Louise
+	 * @param Query 
+	 * @param sResult : the result of the query
+	 * @return Query : a new Query that contains all BlockOfResult returned by the API 
 	 */
-
 	public static Query parseResponse(String sResult, Query query) {
 		EMFModelLoad loader = new EMFModelLoad();
 		JSONArray result = new JSONArray(sResult);
@@ -78,7 +90,9 @@ public class LoadTest {
 	
 	
 	/**
-	 * @param test
+	 * This functions return a string of a Query instance
+	 * @author Sebastien - Idrissa
+	 * @return string of the giving query 
 	 * @throws IOException
 	 */
 	public static String dslBootstrap() throws IOException {

@@ -18,7 +18,10 @@ import model.ModelPackage;
 import model.Period;
 import model.Query;
 /**
- * This class allows to save a created model instance
+ * @author Idrissa SI 
+ * This class allows to save a created model instance 
+ * The class create 2 model instance files called My2.query & My2.result in respective folder folders query and result
+ * 
  * */
 public class createRequestInstance {
 
