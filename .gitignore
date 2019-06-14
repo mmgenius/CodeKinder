@@ -8,7 +8,8 @@
 
 #Bin
 API_SERVER_MODULE/bin
-.settings
+API_SERVER_MODULE/.settings
+
 
 
 # Log file
