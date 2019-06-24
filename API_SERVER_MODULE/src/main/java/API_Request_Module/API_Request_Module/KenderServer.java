@@ -26,7 +26,7 @@ import org.json.simple.parser.ParseException;
 
 public class KenderServer extends WebSocketServer {
 	
-	public static String filename ; 
+	public static String filename ;  
 	public KenderServer(int port) throws UnknownHostException {
 		super(new InetSocketAddress(port));
 	}
@@ -47,6 +47,7 @@ public class KenderServer extends WebSocketServer {
 	public void onClose(WebSocket conn, int code, String reason, boolean remote) {
 		broadcast(conn + " has left the room!");
 		System.out.println(conn + " has left the room!");
+		
 	}
 
 	@Override
@@ -65,9 +66,8 @@ public class KenderServer extends WebSocketServer {
 		
 		if(result != "") {
 			broadcast(result);
-		}
-		
-		 
+			
+		}				 
 	}
 
 	@Override
@@ -75,29 +75,6 @@ public class KenderServer extends WebSocketServer {
 		broadcast(message.array());
 		System.out.println(conn + ": " + message);
 		
-	}
-
-	public static void main(String[] args) throws InterruptedException, IOException {
-				
-		int port =  8887; // 843 flash policy port
-		try {
-			port = Integer.parseInt(args[0]);
-		} catch (Exception ex) {
-		}
-		KenderServer s = new KenderServer(new InetSocketAddress("localhost", port));
-		s.start();
-		System.out.println("Kender started on port: " + s.getPort());
-
-		BufferedReader sysin = new BufferedReader(new InputStreamReader(System.in));
-		while (true) {
-			String in = sysin.readLine();
-			
-			s.broadcast(in);
-			if (in.equals("exit")) {
-				s.stop(10000);
-				break;
-			}
-		}
 	}
 	
 	
@@ -147,12 +124,14 @@ public class KenderServer extends WebSocketServer {
 
 	@Override
 	public void onStart() {
+		 
 		System.out.println("Server started!");
 		setConnectionLostTimeout(0);
 		setConnectionLostTimeout(100);
 	}
 	
 	public String readJsonFile(String path) throws IOException {
+		
 		File jsonFile = new File(path);
 		String data = ""; 
         if (jsonFile.exists()){
