@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Kinder client</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+  <header>
+
+  </header>
+    <h1>TEST SERVER KINDER </h1>
+
+    <p>
+        <button  id="server" value="ws://localhost:8887" onclick="openSocket()">Open</button>
+        <button onclick="closeSocket()">Close</button>
+
+        <p>
+       <p><label for="data">DATA:</label></p>
+       <textarea id="data" name="data" rows="5" cols="50">
+           ...
+       </textarea>
+   </p>
+
+    </p>  
+
+
+    <form>
+      <label for="thelistYearDebut">First year of the period : </label>
+        <select id="thelistYearDebut" name="thelistYearDebut">
+            <option value="?">Select Year</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>
+            <option value="2012">2012</option>
+            <option value="2011">2011</option>
+            <option value="2010">2010</option>
+            <option value="2009">2009</option>
+            <option value="2008">2008</option>
+        </select>
+        <label for="thelistYearFin">Last year of the period : </label>
+        <select id="thelistYearFin" name="thelistYearFin">
+            <option value="?">Select Year</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>
+            <option value="2012">2012</option>
+            <option value="2011">2011</option>
+            <option value="2010">2010</option>
+            <option value="2009">2009</option>
+            <option value="2008">2008</option>
+        </select>
+        <br>
+        <select id="thelistCountry" name="thelistCountry">
+            <option value="FR">France</option>
+            <option value="DE">Allemagne</option>
+            <option value="NG">Niger</option>
+            <option value="SN">Sénégal</option>
+        </select>
+        <button type="button" name="button" onclick="sendText()"> Valider</button>
+    </form>
+
+
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="script.js"></script>
+    <ul id="messages"></ul>
+
+  <!-- construction chart -->
+    <div id="columnchart_product" style="width: 600px; height: 300px;"></div>
+    <div id="columnchart_year" style="width: 600px; height: 300px;"></div>
+
+
+</body>
+</html>
